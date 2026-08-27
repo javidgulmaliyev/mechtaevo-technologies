@@ -103,6 +103,15 @@
         min-block-size: 75px;
         padding: 9px;
       }
+
+      @include mixins.prefers-reduced-motion {
+        transition-property: color;
+        transition-duration: 0.3s;
+      }
+
+      @include mixins.hover {
+        color: variables.$color-1869db;
+      }
     }
 
     &::after {
