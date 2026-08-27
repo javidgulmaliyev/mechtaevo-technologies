@@ -1,0 +1,12 @@
+@use "../../node_modules/swiper/swiper";
+@use "../../node_modules/swiper/modules/keyboard";
+@use "../../node_modules/swiper/modules/navigation";
+
+.swiper {
+  margin: unset;
+  user-select: none;
+}
+
+.swiper-slide {
+  block-size: unset;
+}
