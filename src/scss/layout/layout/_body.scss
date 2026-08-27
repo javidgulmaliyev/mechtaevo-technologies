@@ -1,0 +1,13 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+body {
+  font-family: variables.$font-manrope;
+  font-size: functions.responsive-value(32, 16);
+  background-color: variables.$color-f8f9fc;
+
+  .scroll-lock & {
+    overflow: hidden;
+  }
+}
