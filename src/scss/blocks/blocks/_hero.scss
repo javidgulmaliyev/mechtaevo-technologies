@@ -1,0 +1,50 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.technology-hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  min-block-size: calc(324 / 400 * 100vw);
+  padding-block: functions.responsive-value(103, 19);
+
+  @media (min-width: #{768 + 0.1px}) {
+    align-items: start;
+    min-block-size: 100svh;
+  }
+
+  // .technology-hero__inner
+  &__inner {
+    --container-padding-inline: 12px;
+
+    padding-inline: variables.$padding-inline;
+  }
+
+  // .technology-hero__title
+  &__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-block-size: functions.responsive-value(100, 45);
+    padding-inline: functions.responsive-value(24, 9);
+    font-weight: 500;
+    font-size: functions.responsive-value(96, 28);
+    line-height: 1;
+    text-align: center;
+    color: variables.$color-white;
+    background-color: variables.$color-0b51b4;
+    border-radius: functions.responsive-value(50, 5);
+  }
+
+  // .technology-hero__image
+  &__image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    font-size: 0;
+  }
+}

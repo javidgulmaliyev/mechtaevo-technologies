@@ -3,3 +3,7 @@ $inner: 1800 !default;
 $padding: 25 !default;
 $mobile: 400 !default;
 $container: $inner + $padding * 2;
+$padding-inline: max(
+  (100% - var(--container-inner-width, #{$inner + px})) / 2,
+  var(--container-padding-inline, #{$padding + px})
+);
