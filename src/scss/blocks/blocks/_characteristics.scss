@@ -61,6 +61,12 @@
     border-radius: 20px;
 
     @media (max-width: 768px) {
+      .technology-characteristics-spoilers__item:not(.spoiler-active) & {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
       .spoiler-active & {
         border-radius: 5px;
         padding-block: 15px 18px;
