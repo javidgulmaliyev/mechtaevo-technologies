@@ -1,0 +1,27 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: functions.responsive-value(35, 25);
+  aspect-ratio: 1 / 1;
+  font-size: 0;
+  color: variables.$color-0b51b4;
+  background-color: variables.$color-white;
+  border: 2px solid variables.$color-0b51b4;
+  border-radius: 50%;
+  cursor: pointer;
+
+  @include mixins.prefers-reduced-motion {
+    transition-property: color, background-color;
+    transition-duration: 0.3s;
+  }
+
+  @include mixins.hover {
+    color: variables.$color-white;
+    background-color: variables.$color-0b51b4;
+  }
+}

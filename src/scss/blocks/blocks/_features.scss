@@ -1,0 +1,106 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.technology-features {
+  padding-block: functions.responsive-value(25, 10);
+  padding-inline: variables.$padding-inline;
+  font-family: variables.$font-manrope;
+
+  // .technology-features__title
+  &__title {
+    margin-block-end: functions.responsive-value(25, 10);
+    font-weight: 500;
+    font-size: functions.responsive-value(48, 25);
+
+    @media (min-width: #{768 + 0.1px}) {
+      line-height: 1.08;
+    }
+  }
+}
+
+.technology-features-slider {
+  border-radius: 20px;
+
+  // .technology-features-slider__wrapper
+  &__wrapper {
+  }
+
+  // .technology-features-slider__slide
+  &__slide {
+  }
+
+  // .technology-features-slider__arrow
+  &__arrow {
+    position: absolute;
+    inset-inline-end: functions.responsive-value(60, 20, $end-breakpoint: 768, $behavior: "fixed-both");
+    z-index: 2;
+
+    @media (max-width: 768px) {
+      inset-block-end: calc(#{functions.responsive-value(46, 25)} + 166 / 400 * 100vw / 2);
+      transform: translateY(50%);
+    }
+
+    @media (min-width: #{768 + 0.1px}) {
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.technology-features-card {
+  display: grid;
+  align-items: center;
+  gap: functions.responsive-value(78, 20);
+  block-size: 100%;
+  padding-block: functions.responsive-value(46, 15) functions.responsive-value(46, 25);
+  padding-inline: functions.responsive-value(150, 15);
+  background-color: variables.$color-white;
+  border-radius: 20px;
+
+  @media (min-width: #{768 + 0.1px}) {
+    grid-template-columns: calc(822 / 900 * 1fr) calc(600 / 900 * 1fr);
+  }
+
+  // .technology-features-card__content
+  &__content {
+  }
+
+  // .technology-features-card__title
+  &__title {
+    margin-block-end: 10px;
+    font-weight: 700;
+    font-size: functions.responsive-value(48, 16);
+    letter-spacing: -0.08em;
+    color: variables.$color-162b29;
+
+    @media (min-width: #{768 + 0.1px}) {
+      letter-spacing: -0.03em;
+    }
+
+    br {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
+  }
+
+  // .technology-features-card__text
+  &__text {
+    font-size: functions.responsive-value(32, 16);
+  }
+
+  // .technology-features-card__image
+  &__image {
+    aspect-ratio: 600 / 485;
+    font-size: 0;
+    border-radius: 20px;
+
+    @media (max-width: 768px) {
+      inline-size: 100%;
+      max-inline-size: calc(240 / 400 * 100vw);
+      aspect-ratio: 240 / 166;
+      margin-inline: auto;
+    }
+  }
+}
