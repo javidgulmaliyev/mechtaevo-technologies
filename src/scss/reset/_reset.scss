@@ -35,10 +35,6 @@
   inline-size: 100%;
 }
 
-:where(fieldset, select) {
-  min-inline-size: unset;
-}
-
 :where(input, textarea) {
   caret-color: currentColor;
 }
@@ -53,28 +49,6 @@
 
 :where(ol, ul) {
   list-style: none;
-}
-
-:where(dialog) {
-  position: fixed;
-  isolation: isolate;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  max-inline-size: unset;
-  block-size: 100%;
-  max-block-size: unset;
-  overflow: hidden;
-
-  @include mixins.prefers-reduced-motion {
-    transition-property: opacity, visibility;
-    transition-duration: 0.3s;
-  }
-}
-
-:where(dialog:not([open])) {
-  opacity: 0;
-  visibility: hidden;
 }
 
 :where(html) {
@@ -94,44 +68,9 @@
   appearance: unset;
 }
 
-:where(input[type="number"]) {
-  appearance: unset;
-  -moz-appearance: textfield;
-}
-
-:where(input[type="search"]) {
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    display: none;
-  }
-}
-
-:where(q) {
-  &::before,
-  &::after {
-    content: unset;
-  }
-}
-
-:where(select) {
-  min-block-size: unset;
-  text-overflow: ellipsis;
-}
-
 :where(svg) {
   fill: currentColor;
   stroke: currentColor;
-}
-
-:where(table) {
-  border-collapse: collapse;
-  border-spacing: unset;
-}
-
-:where(textarea) {
-  resize: vertical;
 }
 
 :where(:focus-visible:not(input, select, textarea)) {
@@ -141,12 +80,6 @@
   @include mixins.hover {
     outline: none;
   }
-}
-
-::backdrop {
-  position: absolute;
-  z-index: -1;
-  background: unset;
 }
 
 ::before,
