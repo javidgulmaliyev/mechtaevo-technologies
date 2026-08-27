@@ -11,6 +11,7 @@
   justify-content: end;
   min-block-size: calc(324 / 400 * 100vw);
   padding-block: functions.responsive-value(103, 19);
+  font-family: variables.$font-manrope;
 
   @media (min-width: #{768 + 0.1px}) {
     align-items: start;

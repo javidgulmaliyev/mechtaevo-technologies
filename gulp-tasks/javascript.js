@@ -74,6 +74,7 @@ const webpackOptions = (minimize = false) => ({
     fslightbox: `${javascriptDirectory}/fslightbox.js`,
     simplebar: `${javascriptDirectory}/simplebar.js`,
     imask: `${javascriptDirectory}/imask.js`,
+    script: javascriptScriptJsFile,
   },
   output: {
     filename: isProd && !minimize ? '[name].js' : '[name].min.js',
