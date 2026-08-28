@@ -1,0 +1,105 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.technologies-standards {
+  padding-block: functions.responsive-value(25, 10);
+  padding-inline: variables.$padding-inline;
+  font-family: variables.$font-manrope;
+
+  // .technologies-standards__title
+  &__title {
+    margin-block-end: functions.responsive-value(25, 12);
+    font-weight: 500;
+    font-size: functions.responsive-value(48, 25);
+
+    @media (min-width: #{768 + 0.1px}) {
+      line-height: 1.08;
+    }
+  }
+}
+
+.technologies-standards-slider {
+  border-radius: 20px;
+
+  // .technologies-standards-slider__wrapper
+  &__wrapper {
+  }
+
+  // .technologies-standards-slider__slide
+  &__slide {
+  }
+
+  // .technologies-standards-slider__arrow
+  &__arrow {
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-end: 11px;
+    z-index: 2;
+    transform: translateY(-50%);
+  }
+}
+
+.technologies-standards-card {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  block-size: 100%;
+
+  @media (min-width: #{768 + 0.1px}) {
+    padding-block: functions.responsive-value(30, 9, "default", 1440, "fixed-both", "px");
+    padding-inline: functions.responsive-value(48, 9, "default", 1440, "fixed-both", "px")
+      functions.responsive-value(48, 45, "default", 1440, "fixed-both", "px");
+    background-color: variables.$color-white;
+    border-radius: 20px;
+  }
+
+  // .technologies-standards-card__top
+  &__top {
+    display: grid;
+    grid-template-columns: functions.responsive-value(210, 75, "default", 1440, "fixed-both", "px") 1fr;
+    gap: functions.responsive-value(22, 11, "default", 1440, "fixed-both", "px");
+  }
+
+  // .technologies-standards-card__image
+  &__image {
+    min-block-size: functions.responsive-value(175, 75, "default", 1440, "fixed-both", "px");
+    font-size: 0;
+    background-color: variables.$color-white;
+    border-radius: 20px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  // .technologies-standards-card__title
+  &__title {
+    font-weight: 700;
+    font-size: functions.responsive-value(30, 16);
+    color: variables.$color-162b29;
+
+    @media (max-width: 768px) {
+      display: flex;
+      align-items: center;
+      min-block-size: 75px;
+      padding-block: 9px;
+      padding-inline: 9px 45px;
+      background-color: variables.$color-white;
+      border-radius: 20px;
+    }
+
+    @media (min-width: #{768 + 0.1px}) {
+      letter-spacing: -0.04em;
+    }
+  }
+
+  // .technologies-standards-card__text
+  &__text {
+    font-size: 20px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+}

@@ -15,6 +15,10 @@
   border-radius: 50%;
   cursor: pointer;
 
+  &.swiper-button-lock {
+    display: none;
+  }
+
   @include mixins.prefers-reduced-motion {
     transition-property: color, background-color;
     transition-duration: 0.3s;
