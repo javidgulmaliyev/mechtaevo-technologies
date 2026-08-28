@@ -1,0 +1,94 @@
+@use "../../functions/functions";
+@use "../../mixins/mixins";
+@use "../../variables/variables";
+
+.technology-faq {
+  padding-block: functions.responsive-value(25, 10);
+  padding-inline: variables.$padding-inline;
+  font-family: variables.$font-manrope;
+}
+
+.technology-faq-slider {
+  border-radius: 20px;
+
+  // .technology-faq-slider__wrapper
+  &__wrapper {
+  }
+
+  // .technology-faq-slider__slide
+  &__slide {
+  }
+
+  // .technology-faq-slider__arrow
+  &__arrow {
+    position: absolute;
+    inset-inline-end: functions.responsive-value(60, 20, $end-breakpoint: 768, $behavior: "fixed-both");
+    z-index: 2;
+
+    @media (max-width: 1440px) {
+      inset-block-end: calc(#{functions.responsive-value(46, 15)} + 172 / 400 * 100vw / 2);
+      transform: translateY(50%);
+    }
+
+    @media (min-width: #{1440 + 0.1px}) {
+      inset-block-start: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.technology-faq-card {
+  display: grid;
+  align-items: start;
+  gap: functions.responsive-value(38, 10);
+  block-size: 100%;
+  padding-block: functions.responsive-value(46, 15);
+  padding-inline: functions.responsive-value(125, 15) functions.responsive-value(150, 15);
+  background-color: variables.$color-white;
+  border-radius: 20px;
+
+  @media (min-width: #{1440 + 0.1px}) {
+    grid-template-columns: calc(637 / 743.5 * 1fr) calc(850 / 743.5 * 1fr);
+  }
+
+  // .technology-faq-card__content
+  &__content {
+  }
+
+  // .technology-faq-card__title
+  &__title {
+    margin-block-end: functions.responsive-value(25, 10);
+    font-weight: 700;
+    font-size: functions.responsive-value(48, 20);
+    letter-spacing: -0.06em;
+    color: variables.$color-162b29;
+
+    @media (min-width: #{1440 + 0.1px}) {
+      letter-spacing: -0.03em;
+    }
+  }
+
+  // .technology-faq-card__text
+  &__text {
+    font-size: functions.responsive-value(32, 16);
+  }
+
+  // .technology-faq-card__image
+  &__image {
+    aspect-ratio: 850 / 485;
+    font-size: 0;
+    border-radius: 20px;
+
+    @media (max-width: 1440px) {
+      inline-size: 100%;
+      max-inline-size: calc(300 / 400 * 100vw);
+      aspect-ratio: 300 / 172;
+      margin-block-start: auto;
+      margin-inline: auto;
+    }
+
+    img {
+      object-fit: contain;
+    }
+  }
+}
