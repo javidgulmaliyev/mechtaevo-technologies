@@ -13,6 +13,10 @@
   padding-block: functions.responsive-value(103, 19);
   font-family: variables.$font-manrope;
 
+  & + section {
+    padding-block-start: functions.responsive-value(50, 20);
+  }
+
   @media (min-width: #{768 + 0.1px}) {
     align-items: start;
     min-block-size: 100svh;
