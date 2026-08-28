@@ -1,0 +1,162 @@
+@use "../../../functions/functions";
+@use "../../../mixins/mixins";
+@use "../../../variables/variables";
+
+.construction-technologies {
+  padding-block: functions.responsive-value(25, 10);
+  padding-inline: variables.$padding-inline;
+  font-family: variables.$font-manrope;
+
+  // .construction-technologies__title
+  &__title {
+    margin-block-end: functions.responsive-value(25, 10);
+    font-weight: 500;
+    font-size: functions.responsive-value(48, 25);
+
+    @media (min-width: #{76 + 0.1px}) {
+      line-height: 1.08;
+    }
+  }
+}
+
+.construction-technologies-list {
+  display: grid;
+  gap: functions.responsive-value(75, 10, "default", 1440, "fixed-both", "px");
+
+  @media (min-width: #{992 + 0.1px}) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // .construction-technologies-list__item
+  &__item {
+  }
+}
+
+.construction-technologies-link {
+  display: flex;
+  flex-direction: column;
+  block-size: 100%;
+
+  // .construction-technologies-link__inner
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: functions.responsive-value(21, 11, "default", 1440, "fixed-both", "px");
+    flex: 1 1 auto;
+
+    @media (min-width: #{992 + 0.1px}) {
+      padding-block: functions.responsive-value(30, 9, "default", 1440, "fixed-both", "px")
+        functions.responsive-value(14, 9, "default", 1440, "fixed-both", "px");
+      padding-inline: functions.responsive-value(48, 9, "default", 1440, "fixed-both", "px")
+        functions.responsive-value(30, 9, "default", 1440, "fixed-both", "px");
+      background-color: variables.$color-white;
+      border-radius: 20px;
+    }
+  }
+
+  // .construction-technologies-link__top
+  &__top {
+    display: grid;
+    grid-template-columns: functions.responsive-value(210, 75, "default", 1440, "fixed-both", "px") 1fr;
+    gap: functions.responsive-value(22, 11, "default", 1440, "fixed-both", "px");
+  }
+
+  // .construction-technologies-link__image
+  &__image {
+    min-block-size: functions.responsive-value(175, 75, "default", 1440, "fixed-both", "px");
+    font-size: 0;
+    background-color: variables.$color-white;
+    border-radius: 20px;
+
+    img {
+      object-fit: contain;
+
+      @media (hover) {
+        .construction-technologies-link__inner:has(:hover) & {
+          transform: scale(1.1);
+        }
+
+        @include mixins.prefers-reduced-motion {
+          transition-property: transform;
+          transition-duration: 0.3s;
+        }
+      }
+    }
+  }
+
+  // .construction-technologies-link__content
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: 992px) {
+      display: flex;
+      align-items: start;
+      justify-content: center;
+      min-block-size: 75px;
+      padding: 9px;
+      background-color: variables.$color-white;
+      border-radius: 20px;
+    }
+  }
+
+  // .construction-technologies-link__title
+  &__title {
+    font-weight: 700;
+    font-size: functions.responsive-value(32, 16);
+    color: variables.$color-162b29;
+
+    @media (min-width: #{768 + 0.1px}) {
+      letter-spacing: -0.04em;
+    }
+  }
+
+  // .construction-technologies-link__text
+  &__text {
+    font-size: 20px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    br {
+      @media (max-width: 992px) {
+        display: none;
+      }
+    }
+  }
+
+  // .construction-technologies-link__bottom
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    color: variables.$color-0b51b4;
+
+    @media (max-width: 1440px) {
+      display: none;
+    }
+  }
+
+  // .construction-technologies-link__more
+  &__more {
+    font-weight: 700;
+    font-size: 20px;
+  }
+
+  // .construction-technologies-link__icon
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    inline-size: 35px;
+    aspect-ratio: 1 / 1;
+    font-size: 0;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+}
