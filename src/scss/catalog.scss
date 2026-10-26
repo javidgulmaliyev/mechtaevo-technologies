@@ -3,3 +3,117 @@
 @use "variables/variables";
 @use "properties/properties";
 @use "ui/ui";
+
+.catalog-block {
+  --container-inner-width: 1810px;
+  --container-padding-inline: 20px;
+
+  padding-block: functions.responsive-value(50, 20);
+  padding-inline: variables.$padding-inline;
+  font-family: variables.$font-inter;
+}
+
+.catalog-links {
+  display: grid;
+  grid-template-rows: calc(83 / (614 / 4) * 1fr) calc(143 / (614 / 4) * 1fr) calc(159 / (614 / 4) * 1fr) calc(
+      195 / (614 / 4) * 1fr
+    );
+  grid-template-columns: calc(156 / (353 / 2) * 1fr) calc(197 / (353 / 2) * 1fr);
+  grid-template-areas:
+    "all barnhouse"
+    "all author"
+    "frame frame"
+    "gas ceramics";
+  gap: functions.responsive-value(25, 10);
+  font-weight: 500;
+  font-size: functions.responsive-value(24, 12, "default", "default", "fixed-both", "px");
+  color: variables.$color-white;
+
+  @media (min-width: #{768 + 0.1px}) {
+    grid-template-rows: calc(267 / (700 / 3) * 1fr) calc(158 / (700 / 3) * 1fr) calc(275 / (700 / 3) * 1fr);
+    grid-template-columns: calc(500 / (1735 / 4) * 1fr) calc(635 / (1735 / 4) * 1fr) repeat(
+        2,
+        calc(300 / (1735 / 4) * 1fr)
+      );
+    grid-template-areas:
+      "all barnhouse gas ceramics"
+      "all author gas ceramics"
+      "all author frame frame";
+  }
+
+  // .catalog-links__item
+  &__item {
+    min-inline-size: 0;
+
+    // .catalog-links--all
+    &--all {
+      grid-area: all;
+      aspect-ratio: 156 / 234;
+
+      @media (min-width: #{768 + 0.1px}) {
+        aspect-ratio: 500 / 750;
+      }
+    }
+
+    // .catalog-links--barnhouse
+    &--barnhouse {
+      grid-area: barnhouse;
+    }
+
+    // .catalog-links--author
+    &--author {
+      grid-area: author;
+    }
+
+    // .catalog-links--gas
+    &--gas {
+      grid-area: gas;
+    }
+
+    // .catalog-links--ceramics
+    &--ceramics {
+      grid-area: ceramics;
+    }
+
+    // .catalog-links--frame
+    &--frame {
+      grid-area: frame;
+    }
+  }
+}
+
+.catalog-link {
+  --outline-color: #{variables.$color-162b29};
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: end;
+  block-size: 100%;
+  padding-block: functions.responsive-value(16, 8);
+  padding-inline: functions.responsive-value(30, 16);
+  border-radius: 20px;
+  background-color: variables.$color-0b51b4;
+
+  @include mixins.hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    font-size: 0;
+    box-shadow: inset 0 -50px 50px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  img {
+    @include mixins.prefers-reduced-motion {
+      transition-property: transform;
+      transition-duration: 0.3s;
+    }
+  }
+}
