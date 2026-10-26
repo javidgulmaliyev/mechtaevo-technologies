@@ -1,0 +1,40 @@
+<li class="projects-list__item">
+  <article class="project-card responsive-media">
+    <div class="project-card__top">
+      <h3 class="project-card__title">@@title</h3>
+      <div class="project-dimensions">
+        <div class="project-dimensions__item">
+          <span class="project-dimensions__icon" aria-hidden="true">
+            <svg width="100%" height="100%">
+              <use xlink:href="#icon-sizes"></use>
+            </svg>
+          </span>
+          <span class="project-dimensions__label">@@sizes</span>
+        </div>
+        <div class="project-dimensions__item">
+          <span class="project-dimensions__icon" aria-hidden="true">
+            <svg width="78.125%" height="78.125%">
+              <use xlink:href="#icon-area"></use>
+            </svg>
+          </span>
+          <span class="project-dimensions__label">@@area</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card__bottom">
+      <a class="project-card__link" href="#">Подробнее</a>
+      @@if (badges) {
+      <div class="project-badges">
+        <div class="project-badges__item">@@badges.floor</div>
+        <div class="project-badges__item">Каркас</div>
+      </div>
+      }
+    </div>
+    <picture>
+      <source srcset="img/images/pages/category/projects/@@image.webp" type="image/webp" media="(min-width: 768.1px)">
+      <source srcset="img/images/pages/category/projects/@@image.jpg" type="image/jpg" media="(min-width: 768.1px)">
+      <source srcset="img/images/pages/category/projects/11.webp" type="image/webp">
+      <img src="img/images/pages/category/projects/11.jpg" alt="" loading="lazy">
+    </picture>
+  </article>
+</li>
